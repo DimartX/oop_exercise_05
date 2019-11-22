@@ -1,3 +1,3 @@
-# oop_exercise_5
+# oop_exercise_05
 
 Вариант 1: стек + треугольник
