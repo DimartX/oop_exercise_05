@@ -1,0 +1,126 @@
+\documentclass[12pt]{article}
+
+\usepackage{fullpage}
+\usepackage{multicol,multirow}
+\usepackage{tabularx}
+\usepackage{ulem}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{minted}
+
+\usepackage{color} %% это для отображения цвета в коде
+\usepackage{listings} %% собственно, это и есть пакет listings
+
+\lstset{ %
+language=C,                 % выбор языка для подсветки (здесь это С)
+basicstyle=\small\sffamily, % размер и начертание шрифта для подсветки кода
+numbers=left,               % где поставить нумерацию строк (слева\справа)
+%numberstyle=\tiny,           % размер шрифта для номеров строк
+stepnumber=1,                   % размер шага между двумя номерами строк
+numbersep=5pt,                % как далеко отстоят номера строк от подсвечиваемого кода
+backgroundcolor=\color{white}, % цвет фона подсветки - используем \usepackage{color}
+showspaces=false,            % показывать или нет пробелы специальными отступами
+showstringspaces=false,      % показывать или нет пробелы в строках
+showtabs=false,             % показывать или нет табуляцию в строках
+frame=single,              % рисовать рамку вокруг кода
+tabsize=2,                 % размер табуляции по умолчанию равен 2 пробелам
+captionpos=t,              % позиция заголовка вверху [t] или внизу [b] 
+breaklines=true,           % автоматически переносить строки (да\нет)
+breakatwhitespace=false, % переносить строки только если есть пробел
+escapeinside={\%*}{*)}   % если нужно добавить комментарии в коде
+}
+
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\textbf{МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСОЙ ФЕДЕРАЦИИ
+\medskip
+МОСКОВСКИЙ АВЦИАЦИОННЫЙ ИНСТИТУТ
+(НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЬЕЛЬСКИЙ УНИВЕРСТИТЕТ)
+\vfill\vfill
+{\Huge ЛАБОРАТОРНАЯ РАБОТА №5} \\
+по курсу объектно-ориентированное программирование
+I семестр, 2019/20 уч. год}
+\end{center}
+\vfill
+
+Студент \uline{\it {Артемьев Дмитрий Иванович, группа М8О-206Б-18}\hfill}
+
+Преподаватель \uline{\it {Журавлёв Андрей Андреевич}\hfill}
+
+\vfill
+\end{titlepage}
+
+\subsection*{Условие}
+
+Задание №1: создать шаблонный класс коллекции стек, по заданию содержащей треугольники, с возможностью
+\begin{enumerate}
+\item push add
+\item pop sub
+\item top mul
+\item insert div
+\item erase equ
+\item count\_if
+\item print
+\end{enumerate}
+
+\subsection*{Описание программы}
+
+Исходный код лежит в 6 файлах:
+\begin{enumerate}
+\item src/main.cpp: основная интерактивная программа, возможность работать со стеком
+\item include/stack.hpp: описание и реализация класса вектора
+\item include/figure.hpp: описание и реализация класса обобщённой фигуры
+\item include/triangle.hpp: описание и реализация класса треугольника
+\item include/template.hpp: разные шаблонные вещи
+\item include/point.hpp: описание и реализация класса точки
+  
+\end{enumerate}
+
+\subsection*{Дневник отладки}
+
+Сложности при вставке по индексу на односвязной структуре.
+
+\subsection*{Недочёты}
+
+Двойная линия при вставке и удалении элемента по итератору
+
+\subsection*{Выводы}
+
+Я научился писать шаблонные контейнеры на стандартных указателях: unique\_ptr и shared\_ptr.
+
+\vfill
+
+\subsection*{Исходный код}
+
+{\Huge figure.hpp}
+\inputminted
+    {C++}{include/figure.hpp}
+    \pagebreak
+
+{\Huge point.hpp}
+\inputminted
+    {C++}{include/point.hpp}
+    \pagebreak
+
+{\Huge stack.hpp}
+\inputminted
+    {C++}{include/stack.hpp}
+    \pagebreak
+
+{\Huge template.hpp}
+\inputminted
+    {C++}{include/template.hpp}
+    \pagebreak
+    
+{\Huge triangle.hpp}
+\inputminted
+    {C++}{include/triangle.hpp}
+    \pagebreak
+    
+{\Huge main.cpp}
+\inputminted
+    {C++}{src/main.cpp}
+    \pagebreak    
+\end{document}
